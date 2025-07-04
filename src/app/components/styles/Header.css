@@ -1,0 +1,41 @@
+header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    font-size: 16px;
+    height: 3em;
+    padding: 0 1em;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.filters button {
+    font-size: 16px;
+    padding: 1em;
+    margin: 0.5em 1em;
+    background: none;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.filters button:hover {
+    border: 2px solid #849FFF;
+    cursor: pointer;
+}
+
+.filters .active-filter {
+    color: #FFFFFF;
+    background: #849FFF;
+}
