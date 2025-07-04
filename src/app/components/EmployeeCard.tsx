@@ -1,13 +1,14 @@
 'use client'
 
-import "./styles/EmployeeCard.css"
+import "@components/styles/EmployeeCard.css"
 import {useRouter} from "next/navigation";
 import Image from 'next/image';
+import type { TeamMember } from "@shared/types";
 
-export default function EmployeeCard({ employee }) {
+export default function EmployeeCard({ employee }: { employee: TeamMember }) {
     const router = useRouter();
 
-    const handleOpenCard = () => {
+    const handleOpenCard = (): void => {
         router.push(`/details/${employee.id}`)
     }
 

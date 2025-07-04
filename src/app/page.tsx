@@ -1,6 +1,8 @@
-import EmployeeCard from "./components/EmployeeCard";
-import Header from './components/Header'
+import EmployeeCard from "@components/EmployeeCard";
+import Header from "@components/Header"
 import Image from "next/image";
+import type { TeamMember } from "@shared/types";
+
 
 const fetchData = async () => {
     try {
@@ -9,20 +11,20 @@ const fetchData = async () => {
 
         return await response.json();
     } catch (err) {
-        console.log(err.message);
+        console.log("Fetching error", err);
     }
 };
 
-const searchCompare = (pattern, toCheck) => {
+const searchCompare = (pattern: string, toCheck: string) => {
     return toCheck.toLowerCase().includes(pattern.toLowerCase());
 }
 
-export default async function App({searchParams}) {
+export default async function App({searchParams}: { searchParams: { search: string, filter: string } }) {
     const searchValue = decodeURIComponent(searchParams.search || '');
     const filterValue = decodeURIComponent(searchParams.filter || '');
     const employees = await fetchData();
 
-    const filteredEmployees = employees.filter(el =>
+    const filteredEmployees = employees.filter((el: TeamMember) =>
         searchCompare(searchValue || '', `${el.firstName} ${el.lastName}`)
         && (filterValue === 'All' || searchCompare(filterValue, el.position))
     );
@@ -31,7 +33,7 @@ export default async function App({searchParams}) {
     const renderList = () => {
         if (!emptyList)
             return (
-                filteredEmployees.map((el) => {
+                filteredEmployees.map((el: TeamMember) => {
                     return <EmployeeCard key={el.id} employee={el}/>
                 })
 

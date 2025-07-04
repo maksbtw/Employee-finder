@@ -1,17 +1,17 @@
 import Image from "next/image";
 
-const fetchData = async (id) => {
+const fetchData = async (id: number) => {
     try {
         const response = await fetch('http://localhost:3000/api/' + id);
         if (!response.ok) throw new Error('Failed to fetch data');
 
         return await response.json();
     } catch (err) {
-        console.log(err.message);
+        console.log("Fetching error", err);
     }
 };
 
-export default async function EmployeeDetails({ params }) {
+export default async function EmployeeDetails({ params }: { params: { id: number } }) {
     const employee = await fetchData(params.id)
 
     return (
@@ -23,7 +23,7 @@ export default async function EmployeeDetails({ params }) {
                     <span className="position">{employee.position}</span>
                     <div className="skills">
                         {
-                            employee.technologies.map((skill, index) => (
+                            employee.technologies.map((skill: string, index: number) => (
                                 <span key={index} className="skill">{skill}</span>
                             ))
                         }

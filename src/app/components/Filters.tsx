@@ -1,18 +1,18 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useRouter, useSearchParams} from "next/navigation";
 
 export default function Filters() {
-    const options = [
+    const options: string[] = [
         'All', 'Project Manager', 'DevOps', 'Frontend', 'Backend', 'QA'
     ]
     const [selectedFilter, setSelectedFilter] = useState(options[0]);
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    const handleFilter = (e) => {
-        setSelectedFilter(e.target.name)
+    const handleFilter = (e: React.MouseEvent<HTMLButtonElement>): void => {
+        setSelectedFilter(e.currentTarget.name)
         const params = new URLSearchParams(searchParams.toString());
-        params.set('filter', encodeURIComponent(e.target.name));
+        params.set('filter', encodeURIComponent(e.currentTarget.name));
         router.push(`?${params.toString()}`);
     }
 

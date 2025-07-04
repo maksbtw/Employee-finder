@@ -1,4 +1,6 @@
-let teamData = [
+import type { TeamMember } from "@shared/types";
+
+let teamData: Array<TeamMember> = [
     {
         id: 1,
         firstName: "Anna",
