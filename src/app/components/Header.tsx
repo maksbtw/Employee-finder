@@ -3,7 +3,8 @@
 import "@components/styles/Header.css"
 import Filters from "@components/Filters";
 import {useRouter, useSearchParams} from "next/navigation";
-import {useEffect, useState} from "react";
+import { useEffect, useState} from "react";
+import { IoSearch } from "react-icons/io5";
 
 export default function Header () {
     const [searchTerm, setSearchTerm] = useState('');
@@ -23,6 +24,12 @@ export default function Header () {
         }
     };
 
+    const handleSearchButton = (): void => {
+        const params = new URLSearchParams(searchParams.toString());
+        params.set('search', encodeURIComponent(searchTerm));
+        router.push(`?${params.toString()}`);
+    }
+
     const handleTyping = (e: React.ChangeEvent<HTMLInputElement>): void =>
         { setSearchTerm(e.target.value) }
 
@@ -30,13 +37,15 @@ export default function Header () {
         <header>
             <h1>Employees</h1>
             <nav className="main-nav">
-                <input
-                    type="text"
-                    className="search-bar"
-                    placeholder="Search employee [Enter]"
-                    value={searchTerm}
-                    onChange={handleTyping}
-                    onKeyDown={handleSearch}/>
+                <div className="search-bar-wrapper">
+                    <input
+                        type="text"
+                        placeholder="Search employee [Enter]"
+                        value={searchTerm}
+                        onChange={handleTyping}
+                        onKeyDown={handleSearch}/>
+                    <IoSearch className="search-icon" onClick={handleSearchButton} />
+                </div>
                 <Filters />
             </nav>
         </header>

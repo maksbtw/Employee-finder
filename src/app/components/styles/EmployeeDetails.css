@@ -1,0 +1,50 @@
+@import url("./_variables.css");
+
+.details-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-background-secondary);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.top-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-info {
+    margin-left: 30px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.position {
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 15px;
+    color: var(--color-text-secondary);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skill {
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-primary);
+    background: #FFFFFF;
+    border: 2px solid #BFC8E6;
+    border-radius: 20px;
+}

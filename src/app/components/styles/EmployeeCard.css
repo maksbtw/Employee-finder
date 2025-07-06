@@ -1,26 +1,22 @@
+@import url("./_variables.css");
+
 .employee-card {
     display: flex;
     align-items: center;
     padding: 24px;
 
-    background: #FBFCFF;
+    background: var(--color-background-secondary);
+    background-size: 150% 150%;
     border-radius: 16px;
-    border: 1px solid transparent;
     transition: .3s;
     text-decoration: none;
     color: #000000;
 }
 
 .employee-card:hover {
-    border: 1px solid #BFC8E5;
-    box-shadow: 0 10px 25px #eaeffd;
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
     cursor: pointer;
-}
-
-.employee-photo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
 }
 
 .employee-info {
@@ -28,10 +24,12 @@
 }
 
 .employee-info .name {
+    color: var(--color-text-primary);
     font-size: 18px;
     font-weight: bold;
 }
 
 .employee-info .position {
+    color: var(--color-text-secondary);
     font-size: 14px;
 }

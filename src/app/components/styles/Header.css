@@ -1,3 +1,5 @@
+@import url("./_variables.css");
+
 header {
     display: flex;
     flex-direction: column;
@@ -10,32 +12,51 @@ header {
     align-items: center;
 }
 
-.search-bar {
+.search-bar-wrapper {
+    display: flex;
+    align-items: center;
+    background: var(--color-background-secondary);
+    padding: 0 1em;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+}
+
+.search-icon {
+    font-size: 32px;
+    cursor: pointer;
+    color: var(--color-primary)
+}
+
+.search-bar-wrapper input{
     font-size: 16px;
     height: 3em;
-    padding: 0 1em;
+    outline: none;
+    background: transparent;
+    border: none;
 }
 
 .filters {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    width: 50%;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .filters button {
     font-size: 16px;
     padding: 1em;
     margin: 0.5em 1em;
-    background: none;
+    background-color: transparent;
+    color: var(--color-text-secondary);
     border-radius: 10px;
     border: 2px solid transparent;
 }
 
 .filters button:hover {
-    border: 2px solid #849FFF;
+    border: 2px solid var(--color-border);
     cursor: pointer;
 }
 
 .filters .active-filter {
-    color: #FFFFFF;
-    background: #849FFF;
+    background-color: var(--color-primary);
+    color: var(--color-button-text);
 }

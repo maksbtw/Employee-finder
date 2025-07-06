@@ -1,0 +1,18 @@
+:root {
+    --color-background-primary: #F5F7FA;
+    --color-background-secondary: #FFFFFF;
+
+    --color-text-primary: #111827;
+    --color-text-secondary: #6B7280;
+
+    --color-primary: #4F46E5;
+    --color-button-text: #FFFFFF;
+
+    --color-avatar: #D1D5DB;
+
+    --color-border: #c3c5c9;
+
+    --shadow: 0 10px 15px 0 rgb(230, 230, 230);
+
+    --font: sans-serif;
+}

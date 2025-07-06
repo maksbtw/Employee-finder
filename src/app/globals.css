@@ -1,64 +1,26 @@
+@import url("./components/styles/_variables.css");
+
 body {
   margin: 100px;
-  font-family: sans-serif;
+  font-family: var(--font);
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
 }
 
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 16px;
 }
 
-.employee-details {
-  display: flex;
-  flex-direction: column;
-  background: #FBFCFF;
-  border-radius: 16px;
-  padding: 30px;
+.go-back-button {
+  color: var(--color-primary);
+  font-size: 40px;
+  padding: 16px;
+  transition: .3s;
 }
 
-.top-wrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.employee-photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: lightgray;
-}
-
-.main-info {
-  margin-left: 30px;
-}
-
-.name {
-  font-size: 24px;
-  font-weight: bold;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.position {
-  font-size: 18px;
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.skill {
-  padding: 5px 10px;
-  margin: 0 5px 5px 0;
-  font-size: 12px;
-  font-weight: bold;
-  color: #516FD4;
-  background: #FFFFFF;
-  border: 2px solid #BFC8E6;
-  border-radius: 20px;
+.go-back-button:hover {
+  cursor: pointer;
+  transform: translateX(-5px);
 }
